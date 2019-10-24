@@ -1,0 +1,36 @@
+{
+    "tasks": [
+        {
+            "type": "che",
+            "label": "Configure Apache Web Server DocumentRoot",
+            "command": "if grep -q '/projects$' /etc/apache2/sites-available/000-default.conf; then\n  sed -i 's|DocumentRoot /projects|DocumentRoot /projects/php-web-simple|' /etc/apache2/sites-available/000-default.conf\nelse\n  echo \"DocumentRoot already configured!\"\nfi\n",
+            "target": {
+                "containerName": "php"
+            }
+        },
+        {
+            "type": "che",
+            "label": "Start Apache Web Server",
+            "command": "service apache2 start",
+            "target": {
+                "containerName": "php"
+            }
+        },
+        {
+            "type": "che",
+            "label": "Stop Apache Web Server",
+            "command": "service apache2 stop",
+            "target": {
+                "containerName": "php"
+            }
+        },
+        {
+            "type": "che",
+            "label": "Restart Apache Web Server",
+            "command": "service apache2 restart",
+            "target": {
+                "containerName": "php"
+            }
+        }
+    ]
+}
