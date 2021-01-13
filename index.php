@@ -1,5 +1,5 @@
 <?php
 
-echo "Cloudhay is true"
+echo "This is true"
   
 ?>
